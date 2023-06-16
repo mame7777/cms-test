@@ -25,7 +25,7 @@ jobs:
 
       - run: yarn install
 
-      - run: yarn build
+      - run: npm run build
 
       - name: Set GitHub Deployment Environment
         id: github_deployment_environment
@@ -35,8 +35,8 @@ jobs:
       - name: Deploy to Netlify
         uses: nwtgck/actions-netlify@v1.2
         with:
-          publish-dir: './dist'
-          production-branch: dev
+          publish-dir: 'public/'
+          production-branch: mastar
           github-deployment-environment: ${{ steps.github_deployment_environment.outputs.GITHUB_DEPLOYMENT_ENVIRONMENT }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
           deploy-message: ${{ github.event.head_commit.message || github.event.pull_request.title }}
