@@ -1,4 +1,4 @@
-name: Deploy Netlify
+name: check file
 
 on:
   push:
@@ -33,4 +33,4 @@ jobs:
           echo "GITHUB_DEPLOYMENT_ENVIRONMENT=Netlify dev" >> "${GITHUB_OUTPUT}"
 
       - name: check
-        run: echo public/admin/index.html 
+        run: cat public/admin/index.html 
